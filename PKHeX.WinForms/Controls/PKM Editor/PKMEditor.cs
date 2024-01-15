@@ -440,11 +440,9 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
         var pi = RequestSaveFile.Personal[species];
         UC_Gender.AllowClick = pi.IsDualGender;
 
-        bool hasForms = FormInfo.HasFormSelection(pi, species, Entity.Format);
+        // bool hasForms = FormInfo.HasFormSelection(pi, species, Entity.Format);
+        bool hasForms = true;
         CB_Form.Enabled = CB_Form.Visible = Label_Form.Visible = hasForms;
-
-        if (HaX && Entity.Format >= 4)
-            Label_Form.Visible = true; // show with value entry textbox
 
         if (!hasForms)
         {
@@ -457,11 +455,29 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
         }
 
         var str = GameInfo.Strings;
+        // Create a list of strings with the 18 options
+        List<string> options = new List<string>();
+        for (int i = 0; i < 18; i++)
+        {
+            options.Add("Option " + i); // You can change the label as you wish
+        }
+
+        // Get the forms from the converter
         var forms = FormConverter.GetFormList(species, str.types, str.forms, gendersymbols, Entity.Context);
-        if (forms.Length <= 1) // no choices
-            CB_Form.Enabled = CB_Form.Visible = Label_Form.Visible = false;
-        else
+
+        // Check the length of the forms array
+        if (forms.Length > 1){ // no choices
+            // Use the forms array as the data source for the CB_Form control
             CB_Form.DataSource = forms;
+        }
+
+        // Set the data source for the CB_Form control to the options list
+        // This will override the previous data source if any
+        CB_Form.DataSource = options;
+
+        // Bind the data to the CB_Form control
+        // CB_Form.DataBind();
+
     }
 
     private void SetAbilityList()

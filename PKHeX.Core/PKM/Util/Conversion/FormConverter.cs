@@ -47,7 +47,7 @@ public static class FormConverter
 
     private static bool IsMegaGeneration(this EntityContext context) => context is Gen6 or Gen7 or Gen7b;
 
-    private static readonly string[] EMPTY = [string.Empty];
+    private static readonly string[] EMPTY = ["Default"];
     private const string Starter = nameof(Starter);
 
     private static string[] GetFormsGen1(ushort species, IReadOnlyList<string> types, IReadOnlyList<string> forms, EntityContext context)

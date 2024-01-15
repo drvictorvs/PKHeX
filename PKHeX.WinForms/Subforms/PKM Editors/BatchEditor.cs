@@ -146,9 +146,9 @@ public partial class BatchEditor : Form
                 return;
             if (RB_Boxes.Checked)
                 RunBatchEditSaveFile(sets, boxes: true);
-            else if (RB_Party.Checked)
+            if (RB_Party.Checked)
                 RunBatchEditSaveFile(sets, party: true);
-            else if (destination != null)
+            if (destination != null)
                 RunBatchEditFolder(sets, source, destination);
             finished = true;
         };

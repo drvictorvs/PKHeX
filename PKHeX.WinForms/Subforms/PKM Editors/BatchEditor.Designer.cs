@@ -28,10 +28,10 @@ namespace PKHeX.WinForms
         /// </summary>
         private void InitializeComponent()
         {
-            RB_Boxes = new System.Windows.Forms.RadioButton();
-            RB_Path = new System.Windows.Forms.RadioButton();
+            RB_Boxes = new System.Windows.Forms.CheckBox();
+            RB_Path = new System.Windows.Forms.CheckBox();
             FLP_RB = new System.Windows.Forms.FlowLayoutPanel();
-            RB_Party = new System.Windows.Forms.RadioButton();
+            RB_Party = new System.Windows.Forms.CheckBox();
             TB_Folder = new System.Windows.Forms.TextBox();
             RTB_Instructions = new System.Windows.Forms.RichTextBox();
             B_Go = new System.Windows.Forms.Button();
@@ -44,7 +44,6 @@ namespace PKHeX.WinForms
             // RB_Boxes
             // 
             RB_Boxes.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            RB_Boxes.Appearance = System.Windows.Forms.Appearance.Button;
             RB_Boxes.AutoSize = true;
             RB_Boxes.Checked = true;
             RB_Boxes.Location = new System.Drawing.Point(0, 1);
@@ -54,22 +53,20 @@ namespace PKHeX.WinForms
             RB_Boxes.TabIndex = 0;
             RB_Boxes.TabStop = true;
             RB_Boxes.Text = "Boxes";
-            RB_Boxes.UseVisualStyleBackColor = true;
-            RB_Boxes.Click += B_SAV_Click;
+            RB_Boxes.CheckedChanged += B_SAV_Click;
             // 
             // RB_Path
             // 
             RB_Path.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            RB_Path.Appearance = System.Windows.Forms.Appearance.Button;
             RB_Path.AutoSize = true;
+            RB_Path.Checked = false;
             RB_Path.Location = new System.Drawing.Point(92, 1);
             RB_Path.Margin = new System.Windows.Forms.Padding(0);
             RB_Path.Name = "RB_Path";
             RB_Path.Size = new System.Drawing.Size(59, 25);
             RB_Path.TabIndex = 1;
             RB_Path.Text = "Folder...";
-            RB_Path.UseVisualStyleBackColor = true;
-            RB_Path.Click += B_Open_Click;
+            RB_Path.CheckedChanged += B_Open_Click;
             // 
             // FLP_RB
             // 
@@ -87,15 +84,14 @@ namespace PKHeX.WinForms
             // RB_Party
             // 
             RB_Party.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            RB_Party.Appearance = System.Windows.Forms.Appearance.Button;
             RB_Party.AutoSize = true;
+            RB_Party.Checked = true;
             RB_Party.Location = new System.Drawing.Point(48, 1);
             RB_Party.Margin = new System.Windows.Forms.Padding(0);
             RB_Party.Name = "RB_Party";
             RB_Party.Size = new System.Drawing.Size(44, 25);
             RB_Party.TabIndex = 5;
             RB_Party.Text = "Party";
-            RB_Party.UseVisualStyleBackColor = true;
             // 
             // TB_Folder
             // 
@@ -180,15 +176,15 @@ namespace PKHeX.WinForms
 
         #endregion
 
-        private System.Windows.Forms.RadioButton RB_Boxes;
-        private System.Windows.Forms.RadioButton RB_Path;
+        private System.Windows.Forms.CheckBox RB_Boxes;
+        private System.Windows.Forms.CheckBox RB_Path;
         private System.Windows.Forms.FlowLayoutPanel FLP_RB;
         private System.Windows.Forms.TextBox TB_Folder;
         private System.Windows.Forms.RichTextBox RTB_Instructions;
         private System.Windows.Forms.Button B_Go;
         private System.Windows.Forms.ProgressBar PB_Show;
         private System.Windows.Forms.Button B_Add;
-        private System.Windows.Forms.RadioButton RB_Party;
+        private System.Windows.Forms.CheckBox RB_Party;
         private System.ComponentModel.BackgroundWorker b;
     }
 }

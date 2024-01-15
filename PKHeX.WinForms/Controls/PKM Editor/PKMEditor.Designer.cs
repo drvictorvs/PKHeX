@@ -1793,7 +1793,7 @@ namespace PKHeX.WinForms.Controls
             Stats.EVsFishy = (global::System.Drawing.Color.LightYellow);
             Stats.EVsInvalid = (global::System.Drawing.Color.Red);
             Stats.EVsMaxed = (global::System.Drawing.Color.Honeydew);
-            Stats.HaX = (false);
+            Stats.HaX = (true);
             Stats.Location = (new global::System.Drawing.Point(0, 8));
             Stats.Margin = (new global::System.Windows.Forms.Padding(0));
             Stats.Name = ("Stats");
