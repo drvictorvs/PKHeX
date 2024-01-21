@@ -1,5 +1,7 @@
 Tests/PKHeX.Core.Tests/Legality/Private/
-
+.github
+.vscode
+.gitignore
 
 #################
 ## Eclipse
