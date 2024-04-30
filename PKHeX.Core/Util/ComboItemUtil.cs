@@ -30,12 +30,13 @@ public static partial class Util
         return arr;
     }
 
-    public static List<ComboItem> GetCBList(ReadOnlySpan<string> inStrings)
+    public static List<ComboItem> GetCBList(ReadOnlySpan<string> inStrings, bool sort = true)
     {
         var list = new List<ComboItem>(inStrings.Length);
         for (int i = 0; i < inStrings.Length; i++)
             list.Add(new ComboItem(inStrings[i], i));
-        list.Sort(Comparer);
+        if(sort) 
+            list.Sort(Comparer);
         return list;
     }
 

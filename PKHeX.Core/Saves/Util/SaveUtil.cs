@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using static System.Buffers.Binary.BinaryPrimitives;
-using static PKHeX.Core.MessageStrings;
 using static PKHeX.Core.GameVersion;
+using static PKHeX.Core.MessageStrings;
 
 namespace PKHeX.Core;
 
@@ -128,7 +128,9 @@ public static class SaveUtil
     /// Specialized readers for loading save files from non-standard games (e.g. hacks).
     /// </summary>
     // ReSharper disable once CollectionNeverUpdated.Global
-    public static readonly List<ISaveReader> CustomSaveReaders = [];
+    public static readonly List<ISaveReader> CustomSaveReaders = [
+        new Saves.Util.Recognition.SaveReaderGen8LP(),
+    ];
 #endif
 
 #if !EXCLUDE_EMULATOR_FORMATS

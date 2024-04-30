@@ -277,20 +277,24 @@ public partial class StatEditor : UserControl
     {
         foreach (var s in MT_Stats)
             s.Enabled = CHK_HackedStats.Checked;
-        if (!CHK_HackedStats.Checked)
-            UpdateStats();
+    
+        UpdateStats();
     }
 
     private void UpdateHackedStatText(object sender, EventArgs e)
     {
-        if (!CHK_HackedStats.Checked || sender is not TextBox tb)
-            return;
+        if (
+            // !CHK_HackedStats.Checked ||
+            sender is not TextBox tb){
+            return;}
 
         string text = tb.Text;
         if (string.IsNullOrWhiteSpace(text))
             tb.Text = "0";
         else if (Convert.ToUInt32(text) > ushort.MaxValue)
             tb.Text = "65535";
+        
+        UpdateStats();
     }
 
     private void UpdateHyperTrainingFlag(int index, bool value)
@@ -386,19 +390,25 @@ public partial class StatEditor : UserControl
         // Some entity formats don't store stat values regardless of Box/Party/Etc format.
         // If its attack stat is zero, we need to generate party stats.
         // PK1 format stores Current HP in the compact format, so we have to use attack stat!
+        var pt = MainEditor.RequestSaveFile.Personal;
+        var pi = pt.GetFormEntry(Entity.Species, Entity.Form);
         if (!CHK_HackedStats.Checked || Entity.Stat_ATK == 0)
         {
-            var pt = MainEditor.RequestSaveFile.Personal;
-            var pi = pt.GetFormEntry(Entity.Species, Entity.Form);
             Span<ushort> stats = stackalloc ushort[6];
             Entity.LoadStats(pi, stats);
             Entity.SetStats(stats);
             LoadBST(pi);
             LoadPartyStats(Entity);
         }
+        if (CHK_HackedStats.Checked)
+        {
+            SavePartyStats(Entity);
+            LoadPartyStats(Entity);
+            LoadBST(pi);
+            return;
+        }
         if (Entity is ITeraType)
         {
-            var pi = Entity.PersonalInfo;
             PB_TeraType1.SetType(pi.Type1, false); // Personal Info are just regular move types.
             PB_TeraType2.SetType(pi.Type2, false); // Personal Info are just regular move types.
         }
@@ -496,7 +506,7 @@ public partial class StatEditor : UserControl
         // Set Colored StatLabels only if Nature isn't Neutral
         var (up, dn) = NatureAmp.GetNatureModification(nature);
         if (NatureAmp.IsNeutralOrInvalid(nature, up, dn))
-            return "-/-";
+            return "Neutral";
 
         var incr = L_Stats[up + 1];
         var decr = L_Stats[dn + 1];

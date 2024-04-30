@@ -57,6 +57,12 @@ public partial class BatchEditor : Form
         RunBackgroundWorker();
     }
 
+    private void B_DefaultActions_Click(object sender, EventArgs e)
+    {
+        var tmp=".CurrentFriendship=255\n.Ball=Luxury Ball\n.IV_HP=$20,30\n.IV_ATK=$20,30\n.IV_DEF=$20,30\n.IV_SPA=$20,30\n.IV_SPD=$20,30\n.IV_SPE=$20,30\n.EV_HP=255\n.EV_ATK=255\n.EV_DEF=255\n.EV_SPA=255\n.EV_SPD=255\n.EV_SPE=255\n.HyperTrainFlags=63";
+        RTB_Instructions.AppendText(tmp);
+    }
+
     private void B_Add_Click(object sender, EventArgs e)
     {
         var s = UC_Builder.Create();

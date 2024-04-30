@@ -32,7 +32,7 @@ public enum Gem8Version
     /// March patch.
     /// </summary>
     /// <remarks><see cref="SaveUtil.SIZE_G8BDSP_3"/></remarks>
-    V1_3 = 0x34, // 52
+    V1_3 = 0x34 // 52
 }
 
 public static class Gem8VersionExtensions
@@ -47,6 +47,6 @@ public static class Gem8VersionExtensions
         V1_1 => "-1.1.0", // 1.1.0
         V1_2 => "-1.2.0", // 1.2.0
         V1_3 => "-1.3.0", // 1.3.0
-        _ => throw new ArgumentOutOfRangeException(nameof(version)),
+        _ => "-1.3.0",
     };
 }

@@ -41,7 +41,7 @@ public sealed class FilteredGameDataSource
     {
         var all = source.SpeciesDataSource;
         if (HaX)
-            return FilterAbove(all, sav.MaxSpeciesID);
+            return all;
 
         // Some games cannot acquire every Species that exists. Some can only acquire a subset.
         return sav switch
@@ -78,7 +78,7 @@ public sealed class FilteredGameDataSource
     private static IEnumerable<ComboItem> GetFilteredMoves(IGameValueLimit limit, GameDataSource source, bool HaX = false)
     {
         if (HaX)
-            return source.HaXMoveDataSource.Where(m => m.Value <= limit.MaxMoveID);
+            return source.HaXMoveDataSource;
 
         var legal = source.LegalMoveDataSource;
         return limit switch

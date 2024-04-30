@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
-using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Forms;
 using PKHeX.Core;
 using PKHeX.Drawing;
 using PKHeX.Drawing.Misc;
@@ -19,6 +19,7 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
 {
     public bool IsInitialized { get; private set; }
     private readonly ToolTip SpeciesIDTip = new();
+    private readonly ToolTip AbilityIDTip = new();
     private readonly ToolTip NatureTip = new();
     private readonly ToolTip TipPIDInfo = new();
     private readonly ToolTip AffixedTip = new();
@@ -310,11 +311,8 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
         UpdatePKRSCured(this, EventArgs.Empty);
         UpdateNatureModification(CB_StatNature, Entity.StatNature);
 
-        if (HaX)
-        {
-            if (pk.PartyStatsPresent) // stats present
-                Stats.LoadPartyStats(pk);
-        }
+        if (pk.PartyStatsPresent) // stats present
+            Stats.LoadPartyStats(pk);
         FieldsLoaded = true;
 
         UpdateAffixed(pk);
@@ -375,6 +373,12 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
             TB_Nickname.Font = TB_OT.Font = TB_HT.Font = FontUtil.GetPKXFont();
         }
     }
+
+    private void UpdateAbilityTT(object sender, EventArgs e)
+    {
+        AbilityIDTip.SetToolTip(DEV_Ability, DEV_Ability.SelectedIndex.ToString("000"));
+    }
+
 
     internal void UpdateSprite()
     {
@@ -455,28 +459,19 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
         }
 
         var str = GameInfo.Strings;
-        // Create a list of strings with the 18 options
-        List<string> options = new List<string>();
-        for (int i = 0; i < 18; i++)
-        {
-            options.Add("Option " + i); // You can change the label as you wish
-        }
 
         // Get the forms from the converter
-        var forms = FormConverter.GetFormList(species, str.types, str.forms, gendersymbols, Entity.Context);
+        var forms = FormConverter.GetFormList(species, str.types, str.forms, gendersymbols, Entity.Context, true).ToList() ?? [];
+        
+        
+        int formsCount = forms.Count;
 
-        // Check the length of the forms array
-        if (forms.Length > 1){ // no choices
-            // Use the forms array as the data source for the CB_Form control
-            CB_Form.DataSource = forms;
+        for (int i = formsCount; i < formsCount + 5; i++)
+        {
+            forms.Add($"Form {i}");
         }
-
-        // Set the data source for the CB_Form control to the options list
-        // This will override the previous data source if any
-        CB_Form.DataSource = options;
-
-        // Bind the data to the CB_Form control
-        // CB_Form.DataBind();
+        forms[0] = $"{forms[0]} ({formsCount} form{(formsCount > 1 ? "s" : "")})";
+        CB_Form.DataSource = forms;
 
     }
 
@@ -2185,9 +2180,9 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
             SetIfDifferentCount(source.Games, CB_GameOrigin, force);
         }
 
-        if (sav.Generation >= 4)
+        if (sav.Generation >= 4) {
             SetIfDifferentCount(source.Abilities, DEV_Ability, force);
-
+        }
         if (sav.Generation >= 8)
         {
             var lang = source.Languages;
@@ -2212,7 +2207,7 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
 
     private void ChangeSelectedTabIndex(object? sender, EventArgs e)
     {
-        // flip to the tabless control's tab
+        // flip to the tabless controls tab
         Hidden_TC.SelectedIndex = TC_Editor.SelectedIndex;
         // reset focus back to the vertical tab selection rather than the inaccessible tab
         TC_Editor.Focus();

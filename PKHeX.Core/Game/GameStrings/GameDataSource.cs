@@ -37,11 +37,11 @@ public sealed class GameDataSource
         new ComboItem("CHT (繁體中文)",  (int)LanguageID.ChineseT),
     ];
 
-    public GameDataSource(GameStrings s)
+    public GameDataSource(GameStrings s, bool sort = true)
     {
         Strings = s;
         BallDataSource = GetBalls(s.itemlist);
-        SpeciesDataSource = Util.GetCBList(s.specieslist);
+        SpeciesDataSource = Util.GetCBList(s.specieslist, sort);
         NatureDataSource = Util.GetCBList(s.natures);
         AbilityDataSource = Util.GetCBList(s.abilitylist);
         GroundTileDataSource = Util.GetUnsortedCBList(s.groundtiletypes, GroundTileTypeExtensions.ValidTileTypes);

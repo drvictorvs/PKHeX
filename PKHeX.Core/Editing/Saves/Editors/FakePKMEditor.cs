@@ -5,9 +5,9 @@ namespace PKHeX.Core;
 /// </summary>
 public sealed class FakePKMEditor(PKM template) : IPKMView
 {
-    public PKM Data { get; private set; } = template;
+    public PKM Data { get; private set; }  = template;
     public bool Unicode => true;
-    public bool HaX => false;
+    public bool HaX { get; } = false;
     public bool ChangingFields { get; set; }
     public bool EditsComplete => true;
 

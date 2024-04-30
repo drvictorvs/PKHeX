@@ -1,3 +1,5 @@
+using System;
+
 namespace PKHeX.WinForms.Controls
 {
     partial class PKMEditor
@@ -940,6 +942,7 @@ namespace PKHeX.WinForms.Controls
             DEV_Ability.Size = (new global::System.Drawing.Size(126, 23));
             DEV_Ability.TabIndex = (14);
             DEV_Ability.Visible = (false);
+            DEV_Ability.SelectedIndexChanged += (UpdateAbilityTT);
             // 
             // TB_AbilityNumber
             // 
@@ -3026,7 +3029,6 @@ namespace PKHeX.WinForms.Controls
             TC_Editor.ResumeLayout(false);
             ResumeLayout(false);
         }
-
         #endregion
 
         private System.Windows.Forms.TabControl Hidden_TC;

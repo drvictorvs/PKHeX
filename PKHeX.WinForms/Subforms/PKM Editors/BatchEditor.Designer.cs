@@ -28,6 +28,7 @@ namespace PKHeX.WinForms
         /// </summary>
         private void InitializeComponent()
         {
+            Menu = new System.Windows.Forms.MenuStrip();
             RB_Boxes = new System.Windows.Forms.CheckBox();
             RB_Path = new System.Windows.Forms.CheckBox();
             FLP_RB = new System.Windows.Forms.FlowLayoutPanel();
@@ -35,6 +36,7 @@ namespace PKHeX.WinForms
             TB_Folder = new System.Windows.Forms.TextBox();
             RTB_Instructions = new System.Windows.Forms.RichTextBox();
             B_Go = new System.Windows.Forms.Button();
+            B_DefaultActions = new System.Windows.Forms.Button();
             PB_Show = new System.Windows.Forms.ProgressBar();
             B_Add = new System.Windows.Forms.Button();
             b = new System.ComponentModel.BackgroundWorker();
@@ -126,13 +128,25 @@ namespace PKHeX.WinForms
             B_Go.UseVisualStyleBackColor = true;
             B_Go.Click += B_Go_Click;
             // 
+            // B_DefaultActions
+            // 
+            B_DefaultActions.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            B_DefaultActions.Location = new System.Drawing.Point(283, 265);
+            B_DefaultActions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            B_DefaultActions.Name = "B_DefaultActions";
+            B_DefaultActions.Size = new System.Drawing.Size(86, 27);
+            B_DefaultActions.TabIndex = 6;
+            B_DefaultActions.Text = "Default";
+            B_DefaultActions.UseVisualStyleBackColor = true;
+            B_DefaultActions.Click += B_DefaultActions_Click;
+            // 
             // PB_Show
             // 
             PB_Show.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             PB_Show.Location = new System.Drawing.Point(14, 267);
             PB_Show.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             PB_Show.Name = "PB_Show";
-            PB_Show.Size = new System.Drawing.Size(358, 24);
+            PB_Show.Size = new System.Drawing.Size(261, 24);
             PB_Show.TabIndex = 7;
             // 
             // B_Add
@@ -158,6 +172,7 @@ namespace PKHeX.WinForms
             ClientSize = new System.Drawing.Size(460, 301);
             Controls.Add(B_Add);
             Controls.Add(PB_Show);
+            Controls.Add(B_DefaultActions);
             Controls.Add(B_Go);
             Controls.Add(RTB_Instructions);
             Controls.Add(FLP_RB);
@@ -182,9 +197,11 @@ namespace PKHeX.WinForms
         private System.Windows.Forms.TextBox TB_Folder;
         private System.Windows.Forms.RichTextBox RTB_Instructions;
         private System.Windows.Forms.Button B_Go;
+        private System.Windows.Forms.Button B_DefaultActions;
         private System.Windows.Forms.ProgressBar PB_Show;
         private System.Windows.Forms.Button B_Add;
         private System.Windows.Forms.CheckBox RB_Party;
         private System.ComponentModel.BackgroundWorker b;
+        private System.Windows.Forms.MenuStrip Menu;
     }
 }

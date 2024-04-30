@@ -210,7 +210,7 @@ namespace PKHeX.WinForms.Controls
             // 
             // CHK_HackedStats
             // 
-            CHK_HackedStats.Enabled = false;
+            CHK_HackedStats.Enabled = true;
             CHK_HackedStats.Location = new System.Drawing.Point(0, 0);
             CHK_HackedStats.Margin = new System.Windows.Forms.Padding(0);
             CHK_HackedStats.Name = "CHK_HackedStats";
@@ -218,7 +218,8 @@ namespace PKHeX.WinForms.Controls
             CHK_HackedStats.TabIndex = 0;
             CHK_HackedStats.Text = "Hacked";
             CHK_HackedStats.UseVisualStyleBackColor = true;
-            CHK_HackedStats.Visible = false;
+            CHK_HackedStats.Visible = true;
+            CHK_HackedStats.Checked = true;
             CHK_HackedStats.CheckedChanged += UpdateHackedStats;
             // 
             // FLP_StatsHeaderRight
@@ -342,7 +343,7 @@ namespace PKHeX.WinForms.Controls
             TB_BaseHP.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             TB_BaseHP.Mask = "000";
             TB_BaseHP.Name = "TB_BaseHP";
-            TB_BaseHP.PromptChar = ' ';
+            TB_BaseHP.PromptChar = '_';
             TB_BaseHP.ReadOnly = true;
             TB_BaseHP.Size = new System.Drawing.Size(32, 23);
             TB_BaseHP.TabIndex = 0;
@@ -404,12 +405,12 @@ namespace PKHeX.WinForms.Controls
             // Stat_HP
             // 
             Stat_HP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            Stat_HP.Enabled = false;
+            Stat_HP.Enabled = true;
             Stat_HP.Location = new System.Drawing.Point(188, 0);
             Stat_HP.Margin = new System.Windows.Forms.Padding(0);
             Stat_HP.Mask = "00000";
             Stat_HP.Name = "Stat_HP";
-            Stat_HP.PromptChar = ' ';
+            Stat_HP.PromptChar = '_';
             Stat_HP.Size = new System.Drawing.Size(40, 23);
             Stat_HP.TabIndex = 10;
             Stat_HP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -461,7 +462,7 @@ namespace PKHeX.WinForms.Controls
             TB_BaseATK.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             TB_BaseATK.Mask = "000";
             TB_BaseATK.Name = "TB_BaseATK";
-            TB_BaseATK.PromptChar = ' ';
+            TB_BaseATK.PromptChar = '_';
             TB_BaseATK.ReadOnly = true;
             TB_BaseATK.Size = new System.Drawing.Size(32, 23);
             TB_BaseATK.TabIndex = 0;
@@ -523,12 +524,12 @@ namespace PKHeX.WinForms.Controls
             // Stat_ATK
             // 
             Stat_ATK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            Stat_ATK.Enabled = false;
+            Stat_ATK.Enabled = true;
             Stat_ATK.Location = new System.Drawing.Point(188, 0);
             Stat_ATK.Margin = new System.Windows.Forms.Padding(0);
             Stat_ATK.Mask = "00000";
             Stat_ATK.Name = "Stat_ATK";
-            Stat_ATK.PromptChar = ' ';
+            Stat_ATK.PromptChar = '_';
             Stat_ATK.Size = new System.Drawing.Size(40, 23);
             Stat_ATK.TabIndex = 10;
             Stat_ATK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -580,7 +581,7 @@ namespace PKHeX.WinForms.Controls
             TB_BaseDEF.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             TB_BaseDEF.Mask = "000";
             TB_BaseDEF.Name = "TB_BaseDEF";
-            TB_BaseDEF.PromptChar = ' ';
+            TB_BaseDEF.PromptChar = '_';
             TB_BaseDEF.ReadOnly = true;
             TB_BaseDEF.Size = new System.Drawing.Size(32, 23);
             TB_BaseDEF.TabIndex = 0;
@@ -642,12 +643,12 @@ namespace PKHeX.WinForms.Controls
             // Stat_DEF
             // 
             Stat_DEF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            Stat_DEF.Enabled = false;
+            Stat_DEF.Enabled = true;
             Stat_DEF.Location = new System.Drawing.Point(188, 0);
             Stat_DEF.Margin = new System.Windows.Forms.Padding(0);
             Stat_DEF.Mask = "00000";
             Stat_DEF.Name = "Stat_DEF";
-            Stat_DEF.PromptChar = ' ';
+            Stat_DEF.PromptChar = '_';
             Stat_DEF.Size = new System.Drawing.Size(40, 23);
             Stat_DEF.TabIndex = 10;
             Stat_DEF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -722,7 +723,7 @@ namespace PKHeX.WinForms.Controls
             TB_BaseSPA.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             TB_BaseSPA.Mask = "000";
             TB_BaseSPA.Name = "TB_BaseSPA";
-            TB_BaseSPA.PromptChar = ' ';
+            TB_BaseSPA.PromptChar = '_';
             TB_BaseSPA.ReadOnly = true;
             TB_BaseSPA.Size = new System.Drawing.Size(32, 23);
             TB_BaseSPA.TabIndex = 0;
@@ -784,12 +785,12 @@ namespace PKHeX.WinForms.Controls
             // Stat_SPA
             // 
             Stat_SPA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            Stat_SPA.Enabled = false;
+            Stat_SPA.Enabled = true;
             Stat_SPA.Location = new System.Drawing.Point(188, 0);
             Stat_SPA.Margin = new System.Windows.Forms.Padding(0);
             Stat_SPA.Mask = "00000";
             Stat_SPA.Name = "Stat_SPA";
-            Stat_SPA.PromptChar = ' ';
+            Stat_SPA.PromptChar = '_';
             Stat_SPA.Size = new System.Drawing.Size(40, 23);
             Stat_SPA.TabIndex = 10;
             Stat_SPA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -841,7 +842,7 @@ namespace PKHeX.WinForms.Controls
             TB_BaseSPD.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             TB_BaseSPD.Mask = "000";
             TB_BaseSPD.Name = "TB_BaseSPD";
-            TB_BaseSPD.PromptChar = ' ';
+            TB_BaseSPD.PromptChar = '_';
             TB_BaseSPD.ReadOnly = true;
             TB_BaseSPD.Size = new System.Drawing.Size(32, 23);
             TB_BaseSPD.TabIndex = 0;
@@ -903,12 +904,12 @@ namespace PKHeX.WinForms.Controls
             // Stat_SPD
             // 
             Stat_SPD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            Stat_SPD.Enabled = false;
+            Stat_SPD.Enabled = true;
             Stat_SPD.Location = new System.Drawing.Point(188, 0);
             Stat_SPD.Margin = new System.Windows.Forms.Padding(0);
             Stat_SPD.Mask = "00000";
             Stat_SPD.Name = "Stat_SPD";
-            Stat_SPD.PromptChar = ' ';
+            Stat_SPD.PromptChar = '_';
             Stat_SPD.Size = new System.Drawing.Size(40, 23);
             Stat_SPD.TabIndex = 10;
             Stat_SPD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -960,7 +961,7 @@ namespace PKHeX.WinForms.Controls
             TB_BaseSPE.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             TB_BaseSPE.Mask = "000";
             TB_BaseSPE.Name = "TB_BaseSPE";
-            TB_BaseSPE.PromptChar = ' ';
+            TB_BaseSPE.PromptChar = '_';
             TB_BaseSPE.ReadOnly = true;
             TB_BaseSPE.Size = new System.Drawing.Size(32, 23);
             TB_BaseSPE.TabIndex = 0;
@@ -1022,12 +1023,12 @@ namespace PKHeX.WinForms.Controls
             // Stat_SPE
             // 
             Stat_SPE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            Stat_SPE.Enabled = false;
+            Stat_SPE.Enabled = true;
             Stat_SPE.Location = new System.Drawing.Point(188, 0);
             Stat_SPE.Margin = new System.Windows.Forms.Padding(0);
             Stat_SPE.Mask = "00000";
             Stat_SPE.Name = "Stat_SPE";
-            Stat_SPE.PromptChar = ' ';
+            Stat_SPE.PromptChar = '_';
             Stat_SPE.Size = new System.Drawing.Size(40, 23);
             Stat_SPE.TabIndex = 10;
             Stat_SPE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
